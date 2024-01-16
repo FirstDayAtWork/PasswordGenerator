@@ -11,6 +11,8 @@ let passValue = Math.floor(passLength.value);
 
 
 function generatePassWord() {
+
+    if(passLength.value > 20){return}
     let boxesState = [...checkBoxInputs].map(el => el.checked);
 
     let arr = [];
@@ -127,9 +129,5 @@ passLength.addEventListener('input', changePassLength);
 
 
 function changePassLength(){
-    if(passLength.value > 20){
-      passValue = 20;
-      return
-    }
     passValue = Math.floor(passLength.value);
 }
