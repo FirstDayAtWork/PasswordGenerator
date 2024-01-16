@@ -10,7 +10,7 @@
     <div class="main">
     <header>
         <div class="head">
-        <h1>Pass Generator by Mike</h1>
+        <h1>Pass-Gen by Mike</h1>
         </div>
     </header>
     <div class="container">
@@ -21,13 +21,37 @@
             
             <!-- <button class="copy-pass">Copy</button> -->
         </div>
-        <div class="abilities">
-            <span class="pass-length">Pass length</span>
-            <input type="number" name="number" 
-            min="1" max="20" value="18" step="1" placeholder="" id="how-num">
+        <div class="edit">
+            <div class="abilities">
+                
+                <div class="input-cont">
+                    <span class="pass-length">Digits</span>
+                    <input type="checkbox" name="checkbox" id="digit">
+                </div>
+                <div class="input-cont">
+                    <span class="pass-length">Uppercase letters</span>
+                    <input type="checkbox" name="checkbox" id="h-char">
+                </div>
+                
+                <div class="input-cont">
+                    <span class="pass-length">Lowercase letters</span>
+                    <input type="checkbox" name="checkbox" id="m-char">
+                </div>
+
+                <div class="input-cont">
+                    <span class="pass-length">Special characters</span>
+                    <input type="checkbox" name="checkbox" id="s-char">
+                </div>
+
+                <div class="input-cont">
+                    <span class="pass-length">Pass length</span>
+                    <input type="number" name="number" 
+                    min="1" max="20" value="18" step="1" placeholder="" id="how-num">
+                </div>
+            </div>
         </div>
         <div class="generate-pass">
-            <button class="generate-btn">Generate</button>
+            <button class="style-btn generate-btn">Generate</button>
         </div>
     </div>
 </div>
