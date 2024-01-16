@@ -127,6 +127,9 @@ passLength.addEventListener('input', changePassLength);
 
 
 function changePassLength(){
+    if(passLength.value > 20){
+      passValue = 20;
+      return
+    }
     passValue = Math.floor(passLength.value);
-    // console.log(passValue);
 }

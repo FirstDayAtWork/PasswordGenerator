@@ -75,13 +75,14 @@ header {
     display: flex;
     flex-direction: column;
     margin: 15px 10px 15px 10px;
-    gap: 12px;
+    /* gap: 12px; */
 }
 
 .input-cont{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 10px 0;
 }
 
 input[type="checkbox"]{
