@@ -19,12 +19,17 @@ body {
     padding: 0 10px;
 }
 
-header {
+.app-head {
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    flex-direction: column;
 }
 
+
+.presets-box{
+  display: flex;
+  justify-content: right;
+}
 
 .container {
     background-color: #e7e9eb;

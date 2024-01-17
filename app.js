@@ -3,14 +3,78 @@ const passWindow = document.querySelector('.pass-window');
 const passReveal = document.querySelector('.password-reveal');
 const passLength = document.querySelector('#how-num');
 const checkBoxInputs = document.querySelectorAll('input[type="checkbox"');
+const appHead = document.querySelector('.app-head')
 
 generatePassButton.addEventListener('click', generatePassWord);
 
+// generate presets in DOM
+function generatePresets(){
+  let arr = ['Default', 'Easy', 'Medium', 'Strong'];
+  let map = presetsMap();
 
-let passValue = Math.floor(passLength.value);
+  const container = document.createElement('div');
+  const select = document.createElement("select");
+  container.classList.add('presets-box');
+  select.id = 'presets';
+  appHead.prepend(container)
+  container.appendChild(select)
+
+  for(let i = 0; i < arr.length; i++){
+    const option = document.createElement("option");
+    option.value = `${i}`;
+    option.innerText = arr[i]
+    select.appendChild(option)
+  }
+         
+  
+
+// execute functionality to selected option
+  select.addEventListener('change', () => {
+    let pres = map.get(+select.selectedOptions[0].value)
+    presetConstuctor(pres)
+
+  })
+}
+
+generatePresets()
+
+// Preset template
+function presetConstuctor(preset){
+  let [lenOfpass, ...arr] = preset;
+  for(let i = 0; i < checkBoxInputs.length; i++){
+    checkBoxInputs[i].checked = arr[i]
+  }
+
+  passLength.value = Math.floor(lenOfpass);
+}
+
+
+// hardcode presets
+function presetsMap(){
+  let optionMap = new Map();
+
+  optionMap.set(0, [18, true, true, true, false])
+            .set(1, [4, true, false, true, false])
+            .set(2, [12, false, true, true, false])
+            .set(3, [20, true, true, true, true])
+  
+  return optionMap
+}
+
+// load default preset
+ function loadDefaultPreset(){
+    let map = presetsMap().get(0);
+    presetConstuctor(map)
+    
+  }
+  
+loadDefaultPreset()
+
 
 
 function generatePassWord() {
+
+  let passValue = Math.floor(passLength.value);
 
     if(passLength.value > 20){return}
     let boxesState = [...checkBoxInputs].map(el => el.checked);
